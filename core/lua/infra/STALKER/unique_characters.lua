@@ -1,4 +1,4 @@
-local unique_characters =  {
+local unique_character_personalities =  {
 
     --[[ CORDON ]]--
     ["actor"] = "",                                          -- player
@@ -153,4 +153,4 @@ local unique_characters =  {
 
 }
 
-return unique_characters
+return unique_character_personalities

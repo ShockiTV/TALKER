@@ -78,11 +78,11 @@ function AI_request.pick_speaker(recent_events, compress_memories)
         -- check if AI picked a valid speaker
         if not is_valid_speaker(recent_events, picked_speaker_id) then return end
         -- move on to compress memories step
-        -- this is actually a callback given to the pick_speaker function, but it's expected to be compress_memories
         logger.debug('Compressing memories after picking speaker')
         compress_memories(picked_speaker_id)
     end)
 end
+
 
 --- Compresses older memories when the threshold is exceeded
 -- @param speaker_id The ID of the speaker whose memories are being compressed
