@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-package.path = package.path .. ";./bin/lua/?.lua;"
+package.path = package.path .. ";./core/lua/?.lua;"
 local interface = require("interface.interface")
 local game = require("infra.game_adapter")
 local log = require('framework.logger')

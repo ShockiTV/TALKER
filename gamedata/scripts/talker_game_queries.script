@@ -1,4 +1,4 @@
-package.path = package.path .. ";./bin/lua/?.lua;"
+package.path = package.path .. ";./core/lua/?.lua;"
 local log = require("framework.logger")
 local config = require("interface.config")
 

@@ -4,7 +4,7 @@
 -- Typically this is a gravitational anomaly or radiation
 -- This script was a port from STALKER 1 and may need cleanup
 --------------------------------------------------------------------------------------------
-package.path = package.path .. ";./bin/lua/?.lua;"
+package.path = package.path .. ";./core/lua/?.lua;"
 local log = require('framework.logger')
 local game = require("infra.game_adapter")
 local interface = require("interface.interface")
