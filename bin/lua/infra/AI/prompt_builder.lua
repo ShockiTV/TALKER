@@ -96,6 +96,7 @@ function prompt_builder.create_pick_speaker_prompt(recent_events, witnesses)
     end
 
     table.insert(messages, system_message("Pick the most likely next speaker and reply with only their ID."))
+    table.insert(messages, system_message("The user is speaking " .. config.LANGUAGE))
     logger.debug("Finished building pick_speaker_prompt with %d messages", #messages)
     return messages
 end
