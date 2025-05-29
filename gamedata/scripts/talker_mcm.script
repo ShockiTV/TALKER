@@ -4,15 +4,47 @@ function on_mcm_load()
         sh = true,
         gr = {
             -- Model Choice
-            { id = "gpt_version", type = "radio_h", val = 2, def = 2, content = {
-                {1, "gpt-4o-mini"},
-                {2, "gpt-4o"},
-                {3, "gpt-4-turbo"}
+            {
+                id = "gpt_version",
+                type = "radio_h",
+                val = 2,
+                def = 2,
+                content = {
+                    {1, "gpt-4o-mini"},
+                    {2, "gpt-4o"},
+                    {3, "gpt-4-turbo"}
                 }
             },
-            {id = "speak_key_title", type = "desc", clr = {200, 200, 255, 200}, text="ui_mcm_talker_speak_key_title"},
-            {id = "speak_key_description", type = "desc", text="ui_mcm_talker_speak_key_description"},
-            {id = "speak_key", type = "key_bind", val = 2, def = DIK_keys.DIK_LMENU},
+            -- Language Selection
+            {
+                id = "language",
+                type = "combo",
+                val = 1,
+                def = 1,
+                content = {
+                    {1, "English"},
+                    {2, "Ukrainian"},
+                    {3, "Russian"}
+                }
+            },
+            -- Speak Key UI
+            {
+                id = "speak_key_title",
+                type = "desc",
+                clr = {200, 200, 255, 200},
+                text = "ui_mcm_talker_speak_key_title"
+            },
+            {
+                id = "speak_key_description",
+                type = "desc",
+                text = "ui_mcm_talker_speak_key_description"
+            },
+            {
+                id = "speak_key",
+                type = "key_bind",
+                val = 2,
+                def = DIK_keys.DIK_LMENU
+            },
         }
     }
     return options
@@ -20,8 +52,9 @@ end
 
 -- Default configuration values
 local defaults = {
-	["speak_key"] = DIK_keys.DIK_LMENU,
-    ["gpt_version"] = 2, -- as def=1 is set in options
+    ["speak_key"] = DIK_keys.DIK_LMENU,
+    ["gpt_version"] = 2,
+    ["language"] = 1 -- 1 = English
 }
 
 -- Function to retrieve the configuration value

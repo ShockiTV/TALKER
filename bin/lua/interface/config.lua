@@ -22,7 +22,7 @@ c.BASE_DIALOGUE_CHANCE = 0.25
 c.player_speaks = false
 -- prompt
 c.DIALOGUE_PROMPT = "You are a dialogue generator for the harsh setting of STALKER. Swear if appropriate. Limit your reply to one sentence of dialogue. Write only dialogue without quotations or leading with the character name. Avoid cliche and corny dialogue that is too aware of the popular aspects of the setting. Write dialogue that is realistic and appropriate for the tone of the STALKER setting. Don't be overly antagonistic if not provoked. Speak " .. c.LANGUAGE
-c.LANGUAGE = "English"
+c.LANGUAGE = game_config and game_config.get("language") or "English"
 
 -- model for writing dialogue
 c.DIALOGUE_GPT_MODEL = game_config and game_config.get("gpt_version") or "gpt-4o"
