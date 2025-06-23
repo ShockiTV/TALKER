@@ -8,7 +8,7 @@
         <text>T.A.L.K.E.R.</text>
     </string>
     <string id="ui_mcm_talker_gpt_version">
-        <text>GPT Model for dialogue</text>
+        <text>Model for dialogue</text>
     </string>
     <!-- LANGUAGE SELECTION -->
     <string id="ui_mcm_talker_language">
@@ -35,6 +35,9 @@
     </string>
     <string id="ui_mcm_lst_gpt-4-turbo">
         <text>GPT 4 turbo</text>
+    </string>
+        <string id="ui_mcm_lst_gemini">
+        <text>Gemini</text>
     </string>
     <!-- SPEAK KEY CONFIGURATION -->
     <string id="ui_mcm_talker_speak_key_title">

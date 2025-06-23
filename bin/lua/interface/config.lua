@@ -2,11 +2,19 @@
 local game_config = talker_mcm
 local language = require("infra.language")
 
-local function load_api_key()
+local function load_gpt_api_key()
     local f = io.open("openAi_API_KEY.key", "r")
     if f then return f:read("*a") end
     local key = os.getenv("OPENAI_API_KEY")
     if key == "" then error("Could not find OpenAI API key file") end
+    return key
+end
+
+local function load_gemini_api_key()
+    local f = io.open("GEMINI_API_KEY.key", "r")
+    if f then return f:read("*a") end
+    local key = os.getenv("GEMINI_API_KEY")
+    if key == "" then error("Could not find Gemini API key file") end
     return key
 end
 
@@ -23,7 +31,8 @@ c.NPC_SPEAK_DISTANCE   = 20
 c.BASE_DIALOGUE_CHANCE = 0.25
 c.player_speaks        = false
 c.SHOW_HUD_MESSAGES    = true
-c.OPENAI_API_KEY       = load_api_key()
+c.OPENAI_API_KEY       = load_gpt_api_key()
+c.GEMINI_API_KEY       = load_gemini_api_key()
 
 local DEFAULT_LANGUAGE = language.any.long
 

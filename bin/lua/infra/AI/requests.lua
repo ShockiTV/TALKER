@@ -1,4 +1,3 @@
-
 -- AI_request module
 -- This module is responsible for the AI_request's functionalities.
 -- It provides functions for:
@@ -10,7 +9,6 @@
 package.path = package.path .. ";./bin/lua/?.lua"
 
 local transformations = require "infra.AI.transformations"
-local model = require("infra.AI.GPT")
 local prompt_builder = require("infra.AI.prompt_builder")
 local logger = require("framework.logger")
 local memory_store = require("domain.repo.memory_store")
@@ -70,6 +68,20 @@ local function filter_speakers_by_cooldown(speakers, current_game_time)
     return available_speakers
 end
 
+------------------------------------------------------------------------------------------
+-- Models
+------------------------------------------------------------------------------------------
+
+local gpt = require("infra.AI.GPT")
+local gemini = require("infra.AI.Gemini")
+
+local function model()
+  if config.dialogue_model() == "gemini" then
+    return gemini
+  else
+    return gpt
+  end
+end
 
 ------------------------------------------------------------------------------------------
 -- Core functions
@@ -143,7 +155,7 @@ function AI_request.pick_speaker(recent_events, compress_memories)
 
     local messages = prompt_builder.create_pick_speaker_prompt(recent_events, available_speakers)
     -- call the model to pick the next speaker
-    return model.pick_speaker(messages, function(picked_speaker_id)
+    return model().pick_speaker(messages, function(picked_speaker_id)
         -- check if AI picked a valid speaker
         if not is_valid_speaker(recent_events, picked_speaker_id) then return end
         -- Set the speaker's cooldown
@@ -176,7 +188,7 @@ function AI_request.compress_memories(speaker_id, request_dialogue)
     -- Generate a prompt for memory compression and send a request to the model
     local game_time_of_oldest_memory = old_memories[#old_memories].game_time_ms
     local messages = prompt_builder.create_compress_memories_prompt(old_memories)
-    model.summarize_story(messages, function(compressed_memory)
+    model().summarize_story(messages, function(compressed_memory)
         -- after receiving a response...
         logger.info("Compressed memories: " .. compressed_memory)
         memory_store:store_compressed_memory(speaker_id, compressed_memory, game_time_of_oldest_memory)
@@ -196,7 +208,7 @@ function AI_request.request_dialogue(speaker_id, callback)
     local messages = prompt_builder.create_dialogue_request_prompt(speaker_character, all_memories)
 
     -- call the model to generate the dialogue
-    return model.generate_dialogue(messages, function(generated_dialogue)
+    return model().generate_dialogue(messages, function(generated_dialogue)
         -- when it responds...
         if generated_dialogue == nil then
             logger.error("Error generating dialogue")
