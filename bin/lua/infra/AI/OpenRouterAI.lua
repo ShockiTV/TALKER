@@ -23,7 +23,6 @@ local PRESET = {
 
 -- helpers --------------------------------------------------------------
 local API_URL = "https://openrouter.ai/api/v1/chat/completions"
-local API_KEY = config.OPENROUTER_API_KEY
 
 local function build_body(messages, opts)
   opts = opts or PRESET.creative
@@ -43,9 +42,15 @@ end
 local function send(messages, cb, opts)
   assert(type(cb)=="function","callback required")
 
+  local api_key = config.get_openrouter_api_key()
+  if not api_key then
+    log.error("OpenRouter API key not found. Cannot send request.")
+    return
+  end
+
   local headers = {
     ["Content-Type"]  = "application/json",
-    ["Authorization"] = "Bearer "..API_KEY,
+    ["Authorization"] = "Bearer "..api_key,
   }
 
   local body_tbl = build_body(messages, opts)
