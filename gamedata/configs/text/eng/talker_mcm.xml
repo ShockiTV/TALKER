@@ -14,10 +14,16 @@
         <text>Which method/site to use for models</text>
     </string>
     <string id="ui_mcm_talker_custom_ai_model">
-        <text>OpenRouterAI model for dialogue</text>
+        <text>Model for dialogue</text>
     </string>
     <string id="ui_mcm_talker_custom_ai_model_fast">
-        <text>Fast OpenRouterAI Model for non dialogue</text>
+        <text>Fast Model for non dialogue</text>
+    </string>
+    <string id="ui_mcm_talker_reasoning_level">
+        <text>(Proxy) Reasoning Level (Best Auto or None)</text>
+    </string>
+    <string id="ui_mcm_talker_voice_provider">
+        <text>Voice Provider</text>
     </string>
     <!-- MODEL MODE SLECTION -->
     <string id="ui_mcm_lst_open-ai">
@@ -28,6 +34,35 @@
     </string>
     <string id="ui_mcm_lst_local-deepseek">
         <text>Local</text>
+    </string>
+    <string id="ui_mcm_lst_proxy">
+        <text>Proxy</text>
+    </string>
+    <!-- REASONING LEVEL -->
+    <string id="ui_mcm_lst_Auto">
+        <text>Auto</text>
+    </string>
+    <string id="ui_mcm_lst_None">
+        <text>None</text>
+    </string>
+    <string id="ui_mcm_lst_Low">
+        <text>Low</text>
+    </string>
+    <string id="ui_mcm_lst_Medium">
+        <text>Medium</text>
+    </string>
+    <string id="ui_mcm_lst_High">
+        <text>High</text>
+    </string>
+    <!-- VOICE PROVIDER -->
+    <string id="ui_mcm_lst_local-whisper">
+        <text>Local Whisper</text>
+    </string>
+    <string id="ui_mcm_lst_openai-whisper">
+        <text>OpenAI Whisper</text>
+    </string>
+    <string id="ui_mcm_lst_gemini-proxy">
+        <text>Gemini Proxy</text>
     </string>
     <!-- LANGUAGE SELECTION -->
     <string id="ui_mcm_talker_language">
