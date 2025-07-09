@@ -17,9 +17,7 @@ local showChatBox = false
 local ChatBoxEnabled = true
 
 local function process_player_input(input)
-	local player = game.get_player_character()
-    game.display_dialogue(player.game_id, dialogue)
-    SendScriptCallback("talker_game_event_near_player", Event.TYPE.DIALOGUE, {player.name, input}, true)
+    SendScriptCallback("talker_player_speaks", input)
 end
 
 local function update()
