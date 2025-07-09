@@ -11,7 +11,7 @@ local log = require('framework.logger')
 function actor_on_weapon_jammed()
     local unformatted_description = "%s's weapon jammed!"
     local player = game.get_player_character()
-    interface.register_game_event_near_player(unformatted_description, {player})
+    SendScriptCallback("talker_game_event_near_player", unformatted_description, {player})
 end
 
 --------------------------------------------------------------------------------------------

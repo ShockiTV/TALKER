@@ -6,13 +6,16 @@ local config = require("interface.config")
 -- Import game interface modules
 local queries = talker_game_queries
 
+function talker_mic_transcribe_finished(dialogue)
+    SendScriptCallback("talker_player_speaks", dialogue)
+end
 
 -- Function to handle key press events 
 local function on_key_press(key)
     if key ~= config.speak_key() or not config.is_mic_enabled()  or not queries.is_player_alive() then
         return
     end
-    microphone_recorder.start()
+    microphone_recorder.start(talker_mic_transcribe_finished)
 end
 
 ------------------------------------------------------------------------------------------------------------------------------

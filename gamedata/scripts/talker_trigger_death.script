@@ -34,7 +34,7 @@ function on_creature_death(victim_obj, killer_obj)
     -- decide if the kill is important
     local important = false -- TODO mechanism to decide if kill is important
     -- send event to mod
-    interface.register_game_event(unformatted_description, {victim, killer}, witnesses, important)
+    SendScriptCallback("talker_game_event", unformatted_description, {victim, killer}, witnesses, important)
 end
 
 --------------------------------------------------------------------------------------------

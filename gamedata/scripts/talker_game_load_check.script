@@ -10,7 +10,10 @@ local modules = {
     talker_input_chatbox = "Talker Input Chatbox",
     talker_trigger_reload = "Talker Trigger Reload",
     talker_game_files = "Talker Game Files",
-    talker_trigger_artifact = "Talker Trigger Artifacts"
+    talker_trigger_artifact = "Talker Trigger Artifacts",
+    talker_trigger_game_event = "Talker Trigger Game Event",
+    talker_trigger_game_event_near_player = "Talker Trigger Game Event Near Player",
+    talker_trigger_player_speaks = "Talker Trigger Player Speaks"
 }
 
 -- intentionally duplicated

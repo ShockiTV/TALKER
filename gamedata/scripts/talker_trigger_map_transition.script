@@ -33,7 +33,7 @@ function on_map_change_event(previous_map, current_map)
 
     local witnesses = game.get_companions()
     table.insert(witnesses, game.get_player_character())
-    interface.register_game_event("you traveled from %s to %s %s.", {previous_map_name, current_map_description, visit_amount}, witnesses, true)
+    SendScriptCallback("talker_game_event", "you traveled from %s to %s %s.", {previous_map_name, current_map_description, visit_amount}, witnesses, true)
 end
 
 local previous_map
