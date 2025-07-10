@@ -11,9 +11,9 @@ local modules = {
     talker_trigger_reload = "Talker Trigger Reload",
     talker_game_files = "Talker Game Files",
     talker_trigger_artifact = "Talker Trigger Artifacts",
-    talker_trigger_game_event = "Talker Trigger Game Event",
-    talker_trigger_game_event_near_player = "Talker Trigger Game Event Near Player",
-    talker_trigger_player_speaks = "Talker Trigger Player Speaks"
+    talker_listener_game_event = "Talker Listener Game Event",
+    talker_listener_game_event_near_player = "Talker Listener Game Event Near Player",
+    talker_listener_player_speaks = "Talker Listener Player Speaks"
 }
 
 -- intentionally duplicated
