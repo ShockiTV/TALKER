@@ -1,12 +1,13 @@
 package.path = package.path .. ";./bin/lua/?.lua;"
 local logger = require('framework.logger')
 local game = require("infra.game_adapter")
+local trigger = require("interface.trigger")
 
 AddScriptCallback("talker_game_event_near_player")
 
 function talker_on_game_event_near_player(unformatted_description, involved_objects, important)
     local witnesses = game.get_characters_near_player()
-    SendScriptCallback("talker_game_event", unformatted_description, involved_objects, witnesses, important)
+    trigger.talker_game_event(unformatted_description, involved_objects, witnesses, important)
 end
 
 function talker_safely_on_game_event_near_player(unformatted_description, involved_objects, important)
